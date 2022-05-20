@@ -22,6 +22,8 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log("Table created");
   });
+  
+connection.end();
 });
 
 app.get('/', (req, res) => {
@@ -32,5 +34,3 @@ const port = process.env.port || 3010;
 app.listen(port, () => {
     console.log("Wazzappppp");
 });
-
-connection.end();
