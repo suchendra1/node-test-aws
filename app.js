@@ -22,8 +22,6 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log("Table created");
   });
-  
-connection.end();
 });
 
 app.get('/', (req, res) => {
