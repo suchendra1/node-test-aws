@@ -18,6 +18,10 @@ connection.connect(function(err) {
   console.log('Connected to database.');
 });
 
+connection.query("CREATE DATABASE mydb", function (err, result) {
+    if (err) throw err;
+    console.log("Database created");
+});
 
 app.get('/', (req, res) => {
     res.send("Updated");
