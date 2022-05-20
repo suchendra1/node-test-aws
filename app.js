@@ -23,10 +23,18 @@ app.get('/', (req, res) => {
     var sql = "SELECT * FROM users;";
     connection.query(sql, function (err, result) {
         if (err) res.send(err);
-        console.log("Table created");
         res.send(result)
     });
 });
+
+app.get('/insert', (req, res) => {
+    var sql = "INSERT INTO users VALUES ('sai','kishore');";
+    connection.query(sql, function (err, result) {
+        if (err) res.send(err);
+        res.send(result)
+    });
+});
+
 
 const port = process.env.port || 3010;
 app.listen(port, () => {
