@@ -6,7 +6,8 @@ var connection = mysql.createConnection({
   host     : process.env.RDS_HOSTNAME,
   user     : process.env.RDS_USERNAME,
   password : process.env.RDS_PASSWORD,
-  port     : process.env.RDS_PORT
+  port     : process.env.RDS_PORT,
+  database : "mydb"
 });
 
 connection.connect(function(err) {
@@ -16,11 +17,11 @@ connection.connect(function(err) {
   }
 
   console.log('Connected to database.');
-});
-
-connection.query("CREATE DATABASE mydb", function (err, result) {
+  var sql = "CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))";
+  con.query(sql, function (err, result) {
     if (err) throw err;
-    console.log("Database created");
+    console.log("Table created");
+  });
 });
 
 app.get('/', (req, res) => {
