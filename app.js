@@ -17,15 +17,15 @@ connection.connect(function(err) {
   }
 
   console.log('Connected to database.');
-  var sql = "CREATE TABLE users (name VARCHAR(255), address VARCHAR(255))";
-  connection.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Table created");
-  });
 });
 
 app.get('/', (req, res) => {
-    res.send("Updated");
+    var sql = "SELECT * FROM users;";
+    connection.query(sql, function (err, result) {
+        if (err) res.send(err);
+        console.log("Table created");
+        res.send(result)
+    });
 });
 
 const port = process.env.port || 3010;
