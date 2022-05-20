@@ -17,11 +17,11 @@ connection.connect(function(err) {
   }
 
   console.log('Connected to database.');
-//   var sql = "CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))";
-//   con.query(sql, function (err, result) {
-//     if (err) throw err;
-//     console.log("Table created");
-//   });
+  var sql = "CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))";
+  connection.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table created");
+  });
 });
 
 app.get('/', (req, res) => {
